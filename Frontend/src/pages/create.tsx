@@ -1,6 +1,8 @@
-import React, { useState } from "react";
-import { api } from "../api";
 import { Button, TextField } from "@mui/material";
+import { useState } from "react";
+
+import { api } from "../api";
+
 
 const CreateProperty = ({ onPropertyCreated, onClose }:any) => {
   const [form, setForm] = useState({

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import {
   TableContainer,
@@ -22,10 +22,9 @@ interface Property {
   price: number;
   location: string;
 }
-
 const PropertyList = () => {
-  const [properties, setProperties] = useState([]);
-  const [selectedProperty, setSelectedProperty] = useState(null);
+  const [properties, setProperties] = useState<Property[]>([]);
+  const [selectedProperty, setSelectedProperty] = useState<Property | null>(null);
   const [openModal, setOpenModal] = useState(false);
   const [openCreateModal, setOpenCreateModal] = useState(false);
 
@@ -53,44 +52,55 @@ const PropertyList = () => {
     setOpenModal(false);
     setSelectedProperty(null);
   };
-  const handleChange = (e:any) => {
-    const { name, value } = e.target;
-    setSelectedProperty((prevProperty) => ({
+
+const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const { name, value } = e.target;
+
+  setSelectedProperty((prevProperty) => {
+    if (!prevProperty) return prevProperty;
+
+    return {
       ...prevProperty,
       [name]: value,
-    }));
-  };
+    } as Property;
+  });
+};
+
   const handleSaveChanges = () => {
-    axios
-      .put(
-        `http://localhost:5000/properties/${selectedProperty._id}`,
-        selectedProperty
-      )
-      .then((response) => {
-        setProperties(
-          properties.map((prop) =>
-            prop._id === response.data._id ? response.data : prop
-          ),
-        );
-        handleCloseModal();
-      })
-      .catch((error) => {
-        console.error("There was an error updating the property!", error);
-      });
+    if (selectedProperty) {
+      axios
+        .put(
+          `http://localhost:5000/properties/${selectedProperty._id}`,
+          selectedProperty,
+        )
+        .then((response) => {
+          setProperties(
+            properties.map((prop) =>
+              prop._id === response.data._id ? response.data : prop
+            ),
+          );
+          handleCloseModal();
+        })
+        .catch((error) => {
+          console.error("There was an error updating the property!", error);
+        });
+    }
   };
 
   const handleDeleteProperty = () => {
-    axios
-      .delete(`http://localhost:5000/properties/${selectedProperty._id}`)
-      .then(() => {
-        setProperties(
-          properties.filter((prop) => prop._id !== selectedProperty._id)
-        );
-        handleCloseModal();
-      })
-      .catch((error) => {
-        console.error("There was an error deleting the property!", error);
-      });
+    if (selectedProperty) {
+      axios
+        .delete(`http://localhost:5000/properties/${selectedProperty._id}`)
+        .then(() => {
+          setProperties(
+            properties.filter((prop) => prop._id !== selectedProperty._id)
+          );
+          handleCloseModal();
+        })
+        .catch((error) => {
+          console.error("There was an error deleting the property!", error);
+        });
+    }
   };
 
   const handleOpenCreateModal = () => {
@@ -226,14 +236,14 @@ const PropertyList = () => {
               <TextField
                 label="Title"
                 name="title"
-                value={selectedProperty.title}
+                value={selectedProperty?.title || ""}
                 onChange={handleChange}
                 fullWidth
               />
               <TextField
                 label="Description"
                 name="description"
-                value={selectedProperty.description}
+                value={selectedProperty?.description || ""}
                 onChange={handleChange}
                 multiline
                 rows={3}
@@ -242,7 +252,7 @@ const PropertyList = () => {
               <TextField
                 label="Price"
                 name="price"
-                value={selectedProperty.price}
+                value={selectedProperty?.price || ""}
                 onChange={handleChange}
                 type="number"
                 fullWidth
@@ -250,7 +260,7 @@ const PropertyList = () => {
               <TextField
                 label="Location"
                 name="location"
-                value={selectedProperty.location}
+                value={selectedProperty?.location || ""}
                 onChange={handleChange}
                 fullWidth
               />
