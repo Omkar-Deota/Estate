@@ -20,7 +20,6 @@ const propertyModel = new mongoose.Schema({
   description: String,
   price: Number,
   location: String,
-  available: String,
 });
 
 const Property = mongoose.model('Property', propertyModel);
