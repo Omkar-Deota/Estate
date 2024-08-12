@@ -52,7 +52,7 @@ export default function HomeEx() {
   ];
 
   return (
-    <div className="gap-5 grid grid-cols-3 " style={{width:"70%", marginLeft:"15%"}}>
+    <div className="gap-5 grid grid-cols-3 " style={{width:"70%", marginLeft:"5%"}}>
       {list.map((item, index) => (
         <Card
           isPressable
