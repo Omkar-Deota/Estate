@@ -304,18 +304,18 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
           }}
         >
           <Typography
-            variant="h4"
             component="h2"
-            sx={{ textAlign: "center", marginBottom:"10px", marginTop:"5px"}}
+            sx={{ textAlign: "center", marginBottom: "10px", marginTop: "5px" }}
+            variant="h4"
           >
             Create New Property
           </Typography>
           <CreateProperty
+            onClose={handleCloseCreateModal}
             onPropertyCreated={() => {
               fetchProperties();
               handleCloseCreateModal();
             }}
-            onClose={handleCloseCreateModal}
           />
           <Box sx={{ display: "flex", justifyContent: "flex-end", mt: 2 }}>
             <Button
