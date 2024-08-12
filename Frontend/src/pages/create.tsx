@@ -1,9 +1,6 @@
 import { Button, TextField } from "@mui/material";
 import { useState } from "react";
-
-import { api } from "../api";
-
-
+import axios from "axios";
 const CreateProperty = ({ onPropertyCreated, onClose }:any) => {
   const [form, setForm] = useState({
     title: "",
@@ -22,7 +19,7 @@ const CreateProperty = ({ onPropertyCreated, onClose }:any) => {
   const handleSubmit = async (e:any) => {
     e.preventDefault();
     try {
-      await api.post("/properties", form);
+      await axios.post("http://localhost:5000/properties", form);
       onPropertyCreated();
       onClose();
     } catch (error) {
