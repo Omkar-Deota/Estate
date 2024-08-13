@@ -19,7 +19,7 @@ const CreateProperty = ({ onPropertyCreated, onClose }:any) => {
   const handleSubmit = async (e:any) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/properties", form);
+      await axios.post("https://estate-backend-kojm.onrender.com/properties", form);
       onPropertyCreated();
       onClose();
     } catch (error) {
