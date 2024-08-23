@@ -317,8 +317,9 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
               handleCloseCreateModal();
             }}
           />
-          <Box sx={{ display: "flex", justifyContent: "flex-end", mt: 2 }}>
+          <Box sx={{ display: "flex", justifyContent:"center", mt: 2,marginBottom:"5px"}}>
             <Button
+            
               variant="contained"
               color="error"
               onClick={handleCloseCreateModal}

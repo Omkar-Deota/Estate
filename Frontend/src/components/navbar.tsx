@@ -10,15 +10,22 @@ import {
   NavbarMenu,
   NavbarMenuItem,
 } from "@nextui-org/navbar";
-import { link as linkStyles } from "@nextui-org/theme";
-import clsx from "clsx";
 
+import { link as linkStyles, navbar } from "@nextui-org/theme";
+import clsx from "clsx";
+import {Button} from "@nextui-org/react";
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
 import { SearchIcon } from "@/components/icons";
 import Logo from "@/components/graphics/logo.jpeg";
+import Login from "./LoginPage/Login";
+import Modal from "./LoginPage/modal";
+import { useState } from "react";
+
+
 
 export const Navbar = () => {
+  const [showModal, setShowModal] = useState(false);
   const searchInput = (
     <Input
       aria-label="Search"
@@ -40,7 +47,9 @@ export const Navbar = () => {
     />
   );
 
+
   return (
+    <>
     <NextUINavbar maxWidth="full" position="sticky">
       <NavbarContent className="basis-1/5 sm:basis-full w-full mt-1" justify="start">
         <NavbarBrand className="gap-3 max-w-fit">
@@ -54,7 +63,7 @@ export const Navbar = () => {
               style={{ height: "50px", width: "50px", borderRadius:"100%"}}
               src={Logo}
             />
-            <p className="font-bold text-inherit">LoveIn PROPERTY</p>
+            <p className="font-bold text-inherit">myPROPERTY</p>
           </Link>
         </NavbarBrand>
         <div className="hidden lg:flex gap-4 justify-start ml-2">
@@ -70,7 +79,14 @@ export const Navbar = () => {
               >
                 {item.label}
               </Link>
+
+              <Link className="bg-white">
+              
+            
+            </Link>
+
             </NavbarItem>
+            
           ))}
         </div>
       </NavbarContent>
@@ -105,11 +121,21 @@ export const Navbar = () => {
               >
                 {item.label}
               </Link>
+             
+
             </NavbarMenuItem>
           ))}
         </div>
       </NavbarMenu>
+
+      <Button color="danger" variant="ghost" className="border-1 border-white h-7" onClick={() => setShowModal(true)}>
+        Sign up
+      </Button>
+      <Modal isVisible={showModal} onClose={() => setShowModal(false)}>
+        <Login/>
+      </Modal>
     </NextUINavbar>
-    
+     </>
   );
 };
+    export default navbar;

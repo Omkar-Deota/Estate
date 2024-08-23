@@ -10,6 +10,7 @@ export const siteConfig = {
       label: "Properties",
       href: "/prop",
     },
+    
   ],
   navMenuItems: [
     {
