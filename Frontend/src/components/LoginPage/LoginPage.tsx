@@ -1,44 +1,40 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Button, Input } from "@nextui-org/react";
-import axios from 'axios';
+
 
 function LoginPage() {
-  // State variables for form inputs
-  const [firstname, setFirstname] = useState('');
-  const [lastname, setLastname] = useState('');
-  const [mobile, setMobile] = useState('');
-  const [email, setEmail] = useState('');
-  const [gender, setGender] = useState('female');
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [success, setSuccess] = useState(null);
+  const [data, setData] = useState({
+    firstname: "",
+    lastname: "",
+    mobile: "",
+    email: "",
+    gender: ""
+  });
+  const [submitted, setSubmitted] = useState(false);
+  // Handle input changes
+  function handle(e: any) {
+    const { id, value } = e.target;
+    setData(prevData => ({
+      ...prevData,
+      [id]: value
+    }));
+  }
 
   // Handle form submission
-  const handleSubmit = async (e) => {
+  function handleSubmit(e: any) {
+    // Implement form submission logic
     e.preventDefault();
-    setLoading(true);
-    setError(null);
-    setSuccess(null);
-
-
-    try {
-      const datasend = await axios.post("https://your-api-endpoint/register", {
-        firstname,
-        lastname,
-        mobile,
-        email,
-        gender
+      setSubmitted(true); // Change button text to "Submitted"
+      console.log(data);
+      setData({
+        firstname: "",
+        lastname: "",
+        mobile: "",
+        email: "",
+        gender: ""
       });
-
-      setSuccess('Registration successful!');
-      console.log(datasend.data);
-    } catch (error) {
-      setError('Failed to register. Please try again.');
-      console.error(error);
-    } finally {
-      setLoading(false);
-    }
-  };
+    
+  }
 
   return (
     <div className="w-3/4 p-5 mx-auto text-center rounded-lg shadow-lg">
@@ -47,50 +43,55 @@ function LoginPage() {
         {/* First Row: Firstname and Lastname */}
         <div className="flex flex-wrap gap-4 justify-center mb-6">
           <Input
+            id='firstname'
             type="text"
             label="Firstname"
             placeholder="Enter your firstname"
             fullWidth
-            value={firstname}
-            onChange={(e) => setFirstname(e.target.value)}
+            value={data.firstname}
+            onChange={handle}
           />
           <Input
+            id='lastname'
             type="text"
             label="Lastname"
             placeholder="Enter your lastname"
             fullWidth
-            value={lastname}
-            onChange={(e) => setLastname(e.target.value)}
+            value={data.lastname}
+            onChange={handle}
           />
           <Input
+            id='mobile'
             type="number"
             label="Mobile"
             placeholder="Enter your mobile"
             fullWidth
-            value={mobile}
-            onChange={(e) => setMobile(e.target.value)}
+            value={data.mobile}
+            onChange={handle}
           />
           <Input
+            id='email'
             type="email"
             label="Email"
             placeholder="Enter your email"
             fullWidth
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={data.email}
+            onChange={handle}
           />
         </div>
 
         {/* Gender Selection */}
         <div className="w-2/5 text-center">
-          <label htmlFor="gender-select" className="block text-lg font-medium mb-2 text-black">
+          <label htmlFor="gender" className="block text-lg font-medium mb-2 text-black">
             Gender
           </label>
           <select
-            id="gender-select"
+            id="gender"
             className="border border-gray-300 rounded-lg p-2 w-full"
-            value={gender}
-            onChange={(e) => setGender(e.target.value)}
+            value={data.gender}
+            onChange={handle}
           >
+            <option value="">Select your gender</option>
             <option value="female">Female</option>
             <option value="male">Male</option>
             <option value="other">Other</option>
@@ -102,17 +103,142 @@ function LoginPage() {
           type="submit"
           variant="shadow"
           className="w-full hover:bg-gray-500 text-md text-black font-bold"
-          disabled={loading}
         >
-          {loading ? 'Submitting...' : 'Submit'}
+           {submitted ? "Submitted" : "Submit"}
         </Button>
-
-        {/* Error and Success Messages */}
-        {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
-        {success && <p className="text-green-500 text-sm mt-2">{success}</p>}
+        
       </form>
     </div>
   );
 }
 
 export default LoginPage;
+
+
+
+// import { useState } from 'react';
+// import { Button, Input } from "@nextui-org/react";
+// import axios from 'axios';
+
+// function LoginPage() {
+//   const [data, setData] = useState({
+//     firstname: "",
+//     lastname: "",
+//     mobile: "",
+//     email: "",
+//     gender: ""
+//   });
+
+//   const [submitted, setSubmitted] = useState(false);
+//   const [error, setError] = useState("");
+
+//   // Handle input changes
+//   function handle(e) {
+//     const { id, value } = e.target;
+//     setData(prevData => ({
+//       ...prevData,
+//       [id]: value
+//     }));
+//   }
+
+//   // Handle form submission
+
+//   function handleSubmit(e) {
+//     e.preventDefault();
+
+//     console.log('Form Data:', data); // Log form data before submission
+
+//     axios.post('http://localhost:5000/api/register', data)
+//       .then(response => {
+//     
+//         setData({
+//           firstname: "",
+//           lastname: "",
+//           mobile: "",
+//           email: "",
+//           gender: ""
+//         });
+//         setSubmitted(true);
+//         setError(""); // Clear any previous errors
+//       })
+//       .catch(error => {
+//         console.error(error);
+//         setError("Failed to register user. Please try again.");
+//       });
+//   }
+
+//   return (
+//     <div className="w-3/4 p-5 mx-auto text-center rounded-lg shadow-lg">
+//       <h1 className="text-3xl my-4 bg-slate-500 max-w-max mx-auto">Register Yourself</h1>
+//       <form onSubmit={handleSubmit} className="space-y-6">
+//         <div className="flex flex-wrap gap-4 justify-center mb-6">
+//           <Input
+//             id='firstname'
+//             type="text"
+//             label="Firstname"
+//             placeholder="Enter your firstname"
+//             fullWidth
+//             value={data.firstname}
+//             onChange={handle}
+//           />
+//           <Input
+//             id='lastname'
+//             type="text"
+//             label="Lastname"
+//             placeholder="Enter your lastname"
+//             fullWidth
+//             value={data.lastname}
+//             onChange={handle}
+//           />
+//           <Input
+//             id='mobile'
+//             type="number"
+//             label="Mobile"
+//             placeholder="Enter your mobile"
+//             fullWidth
+//             value={data.mobile}
+//             onChange={handle}
+//           />
+//           <Input
+//             id='email'
+//             type="email"
+//             label="Email"
+//             placeholder="Enter your email"
+//             fullWidth
+//             value={data.email}
+//             onChange={handle}
+//           />
+//         </div>
+
+//         <div className="w-2/5 text-center">
+//           <label htmlFor="gender" className="block text-lg font-medium mb-2 text-black">
+//             Gender
+//           </label>
+//           <select
+//             id="gender"
+//             className="border border-gray-300 rounded-lg p-2 w-full"
+//             value={data.gender}
+//             onChange={handle}
+//           >
+//             <option value="">Select your gender</option>
+//             <option value="female">Female</option>
+//             <option value="male">Male</option>
+//             <option value="other">Other</option>
+//           </select>
+//         </div>
+
+//         <Button
+//           type="submit"
+//           variant="shadow"
+//           className="w-full hover:bg-gray-500 text-md text-black font-bold"
+//         >
+//           {submitted ? "Submitted" : "Submit"}
+//         </Button>
+
+//         {error && <p className="text-red-500 mt-4">{error}</p>}
+//       </form>
+//     </div>
+//   );
+// }
+
+// export default LoginPage;

@@ -7,7 +7,7 @@ import img5 from "./graphics/Screenshot 2024-08-10 193352.png"
 import img6 from "./graphics/Screenshot 2024-08-10 193415.png"
 import img7 from "./graphics/Screenshot 2024-08-10 193415.png"
 import img8 from "./graphics/Screenshot 2024-08-10 193547.png"
-import LoginPage from "./LoginPage/LoginPage";
+
 export default function HomeEx() {
   const list = [
     {

@@ -25,7 +25,9 @@ import { useState } from "react";
 
 
 export const Navbar = () => {
+  
   const [showModal, setShowModal] = useState(false);
+
   const searchInput = (
     <Input
       aria-label="Search"
@@ -79,10 +81,7 @@ export const Navbar = () => {
               >
                 {item.label}
               </Link>
-
               <Link className="bg-white">
-              
-            
             </Link>
 
             </NavbarItem>
@@ -95,7 +94,7 @@ export const Navbar = () => {
         className="hidden sm:flex basis-1/5 sm:basis-full"
         justify="end"
       >
-        <NavbarItem className="hidden lg:flex">{searchInput}<ThemeSwitch /></NavbarItem>
+        <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
       </NavbarContent>
 
       <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
@@ -131,7 +130,7 @@ export const Navbar = () => {
       <Button color="danger" variant="ghost" className="border-1 border-white h-7" onClick={() => setShowModal(true)}>
         Sign up
       </Button>
-      <Modal isVisible={showModal} onClose={() => setShowModal(false)}>
+      <Modal  isVisible={showModal} onClose={() => setShowModal(false)}>
         <Login/>
       </Modal>
     </NextUINavbar>

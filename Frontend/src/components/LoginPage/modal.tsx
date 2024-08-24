@@ -9,6 +9,7 @@ function Modal({ isVisible, onClose, children }) {
         <button
           onClick={() => onClose()}
           className="text-white text-xl place-self-end"
+          
         >
           <svg
             enable-background="new 0 0 32 32"
