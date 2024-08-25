@@ -1,10 +1,18 @@
 import DefaultLayout from "@/layouts/default";
 import CreateProperty from "./newProperty";
+import Tabitem from "@/components/Tabitems/Tabitem";
 
 export default function PropPage() {
   return (
     <DefaultLayout>
-      <CreateProperty />
+      <div>
+      <Tabitem/>
+      </div>
+     
+     {/* <div>
+     <CreateProperty />
+     </div> */}
+      
     </DefaultLayout>
   );
 }

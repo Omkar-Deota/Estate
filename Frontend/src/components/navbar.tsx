@@ -64,7 +64,7 @@ export const Navbar = () => {
             <img
               alt="Logo.jpeg"
               style={{ height: "50px", width: "50px", borderRadius:"100%"}}
-              src={Logo}
+              src="src/components/graphics/logo.png"
             />
             <p className="font-bold text-inherit">myPROPERTY</p>
           </Link>
