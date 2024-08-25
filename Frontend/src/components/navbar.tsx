@@ -52,14 +52,15 @@ export const Navbar = () => {
 
   return (
     <>
-    <NextUINavbar maxWidth="full" position="sticky">
-      <NavbarContent className="basis-1/5 sm:basis-full w-full mt-1" justify="start">
+    <NextUINavbar maxWidth="full" position="sticky" className=" h-24">
+      <NavbarContent className="basis-1/5 sm:basis-full w-full mt-1">
         <NavbarBrand className="gap-3 max-w-fit">
           <Link
             className="flex justify-start items-center gap-1"
             color="foreground"
             href="/"
-          >
+           > 
+           {/* //logo here */}
             <img
               alt="Logo.jpeg"
               style={{ height: "50px", width: "50px", borderRadius:"100%"}}

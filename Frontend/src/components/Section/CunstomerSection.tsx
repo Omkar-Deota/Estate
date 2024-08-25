@@ -1,23 +1,19 @@
 
 import { Link } from 'react-router-dom';
-// import 'bootstrap/dist/css/bootstrap.min.css';
-
-
 function CustomerSection() {
- 
   return (
     <>
-      <div className="flex flex-col lg:flex-row h-max mt-0">
+      <div className="flex flex-col lg:flex-row h-max mt-9 mb-16">
         {/* Left Side */}
-        <div className="w-full lg:w-2/5 ">
-          <h1 className="text-3xl font-bold lg:mt-36">Our Clients</h1>
-          <p className="mt-3 text-gray-700 mb-3">
+        <div className="w-full lg:w-2/5 text-center">
+          <h1 className="text-3xl font-bold   lg:mt-36">Our Clients</h1>
+          <p className="mt-3 text-white mb-3">
             We believe in client satisfaction. Here are some testimonials from our clients.
           </p>
 
           <Link
           to="/moreclients"
-          className="bg-pink-600 text-white rounded-xl w-52  py-2 hover:bg-pink-700"
+          className="bg-pink-600 text-white rounded-xl w-52 py-2 hover:bg-pink-700"
         >
           More Customers
         </Link>
