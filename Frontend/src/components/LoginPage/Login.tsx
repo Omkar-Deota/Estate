@@ -27,7 +27,6 @@ const Login = () => {
 
       // Handle the response
       console.log(response.data);
-      // Redirect or update the state as needed
     } catch (error) {
       console.error(error);
     } finally {
