@@ -20,16 +20,15 @@ const Login = () => {
     setError(null);
 
     try {
-      const response = await axios.post("https://your-api-endpoint/login", {
-        mobileNo,
-        password,
+      const response = await axios.post("http://your-api-endpoint/login", {
+         mobileNo,
+         password,
       });
 
       // Handle the response
       console.log(response.data);
       // Redirect or update the state as needed
     } catch (error) {
-      setError("Failed to login. Please check your credentials and try again.");
       console.error(error);
     } finally {
       setLoading(false);
@@ -103,7 +102,7 @@ const Login = () => {
           {/* Additional Links */}
           <div className="text-center mt-4">
             <p className="text-sm mt-2 text-black">
-              Don't Have an Account?
+              New User?
               <a
                 className="text-blue-500 mx-2 hover:underline"
                 href="#signup"
