@@ -4,7 +4,7 @@ export default function Content() {
   return (
     <ScrollShadow
       hideScrollBar
-      className=" text-2xl w-full sm:w-[600px] md:w-[800px] lg:w-[850px] h-[300px] sm:h-[350px] md:h-[400px] lg:h-[500px] mt-4"
+      className=" text-xl w-full sm:w-[600px] md:w-[800px] lg:w-[850px] h-[300px] sm:h-[350px] md:h-[400px] lg:h-[500px] mt-4"
     >
       <p>
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit
