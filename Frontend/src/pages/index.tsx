@@ -8,6 +8,9 @@ import LastSection from "@/components/Section/LastSection";
 import Footer from "@/components/Footer/Footer";
 import "animate.css";
 import { Link } from "react-router-dom";
+import CardCourasal from "@/components/curosals/CardCourasal";
+import AvailableProperty from "@/components/curosals/AvailableProperty";
+import Insingth from "@/components/curosals/Insingth";
 
 export default function IndexPage() {
   return (
@@ -45,26 +48,21 @@ export default function IndexPage() {
         <Content />
       </div>
 
-      {/* property cards */}
-
-      <div className="flex flex-col items-center justify-center  p-5">
-        <div className=" p-8 rounded-lg w-full max-w-screen-lg text-center">
-          <h1 className="text-3xl text-white font-bold mb-6">
-            Available Properties
-          </h1>
-          <HomeEx />
-          <Link
-            to="/prop"
-            className="mt-6 text-lg text-white font-bold bg-pink-600 rounded-xl p-2"
-          >
-            See more
-          </Link>
-        </div>
+       {/* CardCourasal  */}
+      <div className="mb-20 ">
+       <AvailableProperty/>
       </div>
+     
       {/* our coustomer section */}
       <div>
         <CunstomerSection />
       </div>
+    
+    {/* insigth & tools */}
+    <div className="items-center justify-center flex mb-28">
+    <Insingth/>
+    </div>
+   
 
       {/* Last section */}
       <div>
@@ -75,6 +73,7 @@ export default function IndexPage() {
       <div>
         <Footer />
       </div>
+
     </div>
   );
 }
