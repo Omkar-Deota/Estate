@@ -16,7 +16,7 @@ function Insingth() {
         infinite: false,
         speed: 500,
         slidesToScroll: 1,
-        slidesToShow: 4,
+        slidesToShow: 3,
         responsive: [
             {
                 breakpoint: 1024,
@@ -36,8 +36,9 @@ function Insingth() {
     };
 
     return (
-        <div className="bg-slate-300 w-full p-8">
+        <div  style={{ width: '99%' }} className="bg-slate-300  p-8">
             <div className="text-start mb-8">
+                
                 <p className="text-4xl text-black font-extrabold ml-6 mb-2">Insight & Tools</p>
                 <p className="text-yellow-500 text-xl mb-8">Get other important information</p>
             </div>
