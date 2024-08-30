@@ -57,7 +57,7 @@ function CardCourasal() {
                                     shadow="sm"
                                     radius="lg"
                                     alt={item.title}
-                                    className="object-cover w-full md:w-80 lg:w-80 h-44"
+                                    className="object-cover w-96 md:w-80 lg:w-80 h-44"
                                     src={item.img}
                                 />
                             </CardBody>
