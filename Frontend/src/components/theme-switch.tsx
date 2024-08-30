@@ -4,7 +4,6 @@ import { SwitchProps, useSwitch } from "@nextui-org/switch";
 import clsx from "clsx";
 
 import { useTheme } from "@/hooks/use-theme";
-import { SunFilledIcon, MoonFilledIcon } from "@/components/icons";
 
 export interface ThemeSwitchProps {
   className?: string;
@@ -16,28 +15,23 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
   classNames,
 }) => {
   const [isMounted, setIsMounted] = useState(false);
-
   const { theme, toggleTheme } = useTheme();
 
-  const onChange = toggleTheme;
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const {
     Component,
     slots,
-    isSelected,
     getBaseProps,
     getInputProps,
     getWrapperProps,
   } = useSwitch({
     isSelected: theme === "dark",
-    onChange,
+    onChange: toggleTheme,
   });
 
-  useEffect(() => {
-    setIsMounted(true);
-  }, [isMounted]);
-
-  // Prevent Hydration Mismatch
   if (!isMounted) return <div className="w-6 h-6" />;
 
   return (
@@ -55,24 +49,9 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
       </VisuallyHidden>
       <div
         {...getWrapperProps()}
-        className={slots.wrapper({
-          class: clsx(
-            [
-              "w-auto h-auto",
-              "bg-transparent",
-              "rounded-lg",
-              "flex items-center justify-center",
-              "group-data-[selected=true]:bg-transparent",
-              "!text-default-500",
-              "pt-px",
-              "px-0",
-              "mx-0",
-            ],
-            classNames?.wrapper,
-          ),
-        })}
+        className={slots.wrapper({})}
       >
-    
+        {/* Optionally render any visual elements for the switch */}
       </div>
     </Component>
   );

@@ -17,7 +17,7 @@ import {Button} from "@nextui-org/react";
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
 import { SearchIcon } from "@/components/icons";
-import Logo from "@/components/graphics/logo.jpeg";
+
 import Login from "./LoginPage/Login";
 import Modal from "./LoginPage/modal";
 import { useState } from "react";

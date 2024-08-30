@@ -1,14 +1,11 @@
 import { title, subtitle } from "@/components/primitives";
 import DefaultLayout from "@/layouts/default";
 import img from "@/components/graphics/Background.jpg";
-import HomeEx from "@/components/homeExample";
 import Content from "@/components/content";
 import CunstomerSection from "@/components/Section/CunstomerSection";
 import LastSection from "@/components/Section/LastSection";
 import Footer from "@/components/Footer/Footer";
 import "animate.css";
-import { Link } from "react-router-dom";
-import CardCourasal from "@/components/curosals/CardCourasal";
 import AvailableProperty from "@/components/curosals/AvailableProperty";
 import Insingth from "@/components/curosals/Insingth";
 
