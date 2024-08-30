@@ -66,7 +66,7 @@ export const Navbar = () => {
               style={{ height: "50px", width: "50px", borderRadius:"100%"}}
               src="src/components/graphics/logo.png"
             />
-            <p className="font-bold text-inherit">myPROPERTY</p>
+            <p className="font-bold text-inherit">DreamResidency</p>
           </Link>
         </NavbarBrand>
         <div className="hidden lg:flex gap-4 justify-start ml-2">
@@ -131,9 +131,11 @@ export const Navbar = () => {
       <Button color="danger" variant="ghost" className="border-1 border-white h-7" onClick={() => setShowModal(true)}>
         Sign up
       </Button>
+      
       <Modal  isVisible={showModal} onClose={() => setShowModal(false)}>
         <Login/>
       </Modal>
+
     </NextUINavbar>
      </>
   );

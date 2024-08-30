@@ -12,7 +12,7 @@ function CustomerSection() {
           </p>
 
           <Link
-            className="bg-pink-600 text-white rounded-xl w-52 py-2 hover:bg-pink-700"
+            className="bg-pink-600 text-white rounded-xl w-52 py-2 hover:bg-pink-700 p-2 font-bold"
             to="/moreclients"
           >
             More Customers

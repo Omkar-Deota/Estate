@@ -9,6 +9,7 @@ import "animate.css";
 import AvailableProperty from "@/components/curosals/AvailableProperty";
 import Insingth from "@/components/curosals/Insingth";
 
+
 export default function IndexPage() {
   return (
     <div className="relative ">
@@ -59,7 +60,7 @@ export default function IndexPage() {
     <div className="items-center justify-center flex mb-28">
     <Insingth/>
     </div>
-   
+  
 
       {/* Last section */}
       <div>
