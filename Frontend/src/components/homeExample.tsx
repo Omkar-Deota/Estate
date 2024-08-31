@@ -1,4 +1,5 @@
 import { Card, CardBody, CardFooter, Image } from "@nextui-org/react";
+
 import img1 from "./graphics/Screenshot 2024-08-10 193221.png";
 import img2 from "./graphics/Screenshot 2024-08-10 193229.png";
 import img3 from "./graphics/Screenshot 2024-08-10 193241.png";
@@ -23,12 +24,13 @@ export default function HomeEx() {
   return (
     <div className="flex justify-center p-5 shadow-lg ">
       <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 w-full max-w-screen-lg">
-        {list.map((item, index) => (
+        {list.map((item, index: number) => (
           <Card
+            key={index}
             isPressable
             className="card-hover"
-            key={index}
             shadow="sm"
+            /* eslint-disable no-console */
             onPress={() => console.log("item pressed")}
           >
             <CardBody className="overflow-visible p-0">

@@ -35,6 +35,7 @@ function Modal({ isVisible, onClose, children }: any) {
               />
             </g>
           </svg>
+          Button
         </button>
         <div>{children}</div>
       </div>

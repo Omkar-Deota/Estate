@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { useState, useEffect } from "react";
 import axios from "axios";
 import {
@@ -24,7 +25,9 @@ interface Property {
 }
 const PropertyList = () => {
   const [properties, setProperties] = useState<Property[]>([]);
-  const [selectedProperty, setSelectedProperty] = useState<Property | null>(null);
+  const [selectedProperty, setSelectedProperty] = useState<Property | null>(
+    null,
+  );
   const [openModal, setOpenModal] = useState(false);
   const [openCreateModal, setOpenCreateModal] = useState(false);
 
@@ -43,7 +46,7 @@ const PropertyList = () => {
       });
   };
 
-  const handleEditClick = (property:any) => {
+  const handleEditClick = (property: any) => {
     setSelectedProperty(property);
     setOpenModal(true);
   };
@@ -53,18 +56,18 @@ const PropertyList = () => {
     setSelectedProperty(null);
   };
 
-const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  const { name, value } = e.target;
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
 
-  setSelectedProperty((prevProperty) => {
-    if (!prevProperty) return prevProperty;
+    setSelectedProperty((prevProperty) => {
+      if (!prevProperty) return prevProperty;
 
-    return {
-      ...prevProperty,
-      [name]: value,
-    } as Property;
-  });
-};
+      return {
+        ...prevProperty,
+        [name]: value,
+      } as Property;
+    });
+  };
 
   const handleSaveChanges = () => {
     if (selectedProperty) {
@@ -76,7 +79,7 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         .then((response) => {
           setProperties(
             properties.map((prop) =>
-              prop._id === response.data._id ? response.data : prop
+              prop._id === response.data._id ? response.data : prop,
             ),
           );
           handleCloseModal();
@@ -93,7 +96,7 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         .delete(`http://localhost:5000/properties/${selectedProperty._id}`)
         .then(() => {
           setProperties(
-            properties.filter((prop) => prop._id !== selectedProperty._id)
+            properties.filter((prop) => prop._id !== selectedProperty._id),
           );
           handleCloseModal();
         })
@@ -122,8 +125,8 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
           Properties Listed
         </Typography>
         <Button
-          variant="contained"
           color="primary"
+          variant="contained"
           onClick={handleOpenCreateModal}
         >
           Add Property
@@ -193,8 +196,8 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
                 </TableCell>
                 <TableCell>
                   <Button
-                    variant="contained"
                     color="primary"
+                    variant="contained"
                     onClick={() => handleEditClick(property)}
                   >
                     Edit
@@ -221,7 +224,7 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
             p: 4,
           }}
         >
-          <Typography variant="h6" component="h2" gutterBottom>
+          <Typography gutterBottom component="h2" variant="h6">
             Edit Property
           </Typography>
           {selectedProperty && (
@@ -234,49 +237,49 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
               }}
             >
               <TextField
+                fullWidth
                 label="Title"
                 name="title"
                 value={selectedProperty?.title || ""}
                 onChange={handleChange}
-                fullWidth
               />
               <TextField
+                fullWidth
+                multiline
                 label="Description"
                 name="description"
+                rows={3}
                 value={selectedProperty?.description || ""}
                 onChange={handleChange}
-                multiline
-                rows={3}
-                fullWidth
               />
               <TextField
+                fullWidth
                 label="Price"
                 name="price"
+                type="number"
                 value={selectedProperty?.price || ""}
                 onChange={handleChange}
-                type="number"
-                fullWidth
               />
               <TextField
+                fullWidth
                 label="Location"
                 name="location"
                 value={selectedProperty?.location || ""}
                 onChange={handleChange}
-                fullWidth
               />
               <Box
                 sx={{ display: "flex", justifyContent: "space-between", mt: 2 }}
               >
                 <Button
-                  variant="contained"
                   color="error"
+                  variant="contained"
                   onClick={handleDeleteProperty}
                 >
                   Delete
                 </Button>
                 <Button
-                  variant="contained"
                   color="primary"
+                  variant="contained"
                   onClick={handleSaveChanges}
                 >
                   Save Changes
@@ -317,13 +320,19 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
               handleCloseCreateModal();
             }}
           />
-          <Box sx={{ display: "flex", justifyContent:"center", mt: 2,marginBottom:"5px"}}>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              mt: 2,
+              marginBottom: "5px",
+            }}
+          >
             <Button
-            
-              variant="contained"
               color="error"
-              onClick={handleCloseCreateModal}
               sx={{ ml: 2 }}
+              variant="contained"
+              onClick={handleCloseCreateModal}
             >
               Cancel
             </Button>
