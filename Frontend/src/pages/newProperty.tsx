@@ -212,17 +212,17 @@ const PropertyList = () => {
       {/* Edit/Delete Modal */}
       <Modal open={openModal} onClose={handleCloseModal}>
         <Box
-          sx={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
+             transform: "translate(-50%, -50%)",
             width: 400,
             bgcolor: "gray",
             border: "2px solid #000",
             boxShadow: 24,
             p: 4,
-          }}
+          }} sx={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+        
         >
           <Typography gutterBottom component="h2" variant="h6">
             Edit Property

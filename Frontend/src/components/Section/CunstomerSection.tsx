@@ -12,7 +12,7 @@ function CustomerSection() {
           </p>
 
           <Link
-            className="bg-pink-600 text-white rounded-xl w-52 py-2 hover:bg-pink-700"
+            className="bg-pink-600 text-white rounded-xl w-52 py-2 hover:bg-pink-700 p-2 font-bold"
             to="/moreclients"
           >
             More Customers
@@ -29,7 +29,7 @@ function CustomerSection() {
                 src="https://via.placeholder.com/150"
               />
               <div className="flex-1 p-4 text-center">
-                <h2 className="text-lg font-semibold text-gray-800">Card 1</h2>
+                <h2 className="text-lg font-semibold text-gray-800">Client 1</h2>
                 <p className="text-gray-600 mt-2">
                   Paragraphs are the building blocks of papers. Many students
                   define paragraphs in terms of length: a paragraph is a group
@@ -47,7 +47,7 @@ function CustomerSection() {
                 src="https://via.placeholder.com/150"
               />
               <div className="flex-1 p-4 text-center">
-                <h2 className="text-lg font-semibold text-gray-800">Card 2</h2>
+                <h2 className="text-lg font-semibold text-gray-800">Client 2</h2>
                 <p className="text-gray-600 mt-2">
                   Paragraphs are the building blocks of papers. Many students
                   define paragraphs in terms of length: a paragraph is a group
