@@ -1,13 +1,13 @@
-import { title, subtitle } from "@/components/primitives";
-import DefaultLayout from "@/layouts/default";
-import img from "@/components/graphics/Background.jpg";
-import Content from "@/components/content";
-import CunstomerSection from "@/components/Section/CunstomerSection";
-import LastSection from "@/components/Section/LastSection";
-import Footer from "@/components/Footer/Footer";
-import "animate.css";
-import AvailableProperty from "@/components/curosals/AvailableProperty";
-import Insingth from "@/components/curosals/Insingth";
+import { title, subtitle } from "@/components/primitives"
+import DefaultLayout from "@/layouts/default"
+import img from "@/components/graphics/Background.jpg"
+import Content from "@/components/content"
+import CunstomerSection from "@/components/Section/CunstomerSection"
+import LastSection from "@/components/Section/LastSection"
+import Footer from "@/components/Footer/Footer"
+import "animate.css"
+import AvailableProperty from "@/components/curosals/AvailableProperty"
+import Insingth from "@/components/curosals/Insingth"
 
 
 export default function IndexPage() {
@@ -22,8 +22,8 @@ export default function IndexPage() {
         <div className="content relative justify-center text-center sm:h-full">
           <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10 ">
             <div className="inline-block max-w-lg text-center justify-center animate__animated animate__fadeIn animate__delay-1s lg:mt-28">
-              <h1 className={title()}>Immense peace and &nbsp;</h1>
-              <h1 className={title({ color: "green" })}>relaxing,&nbsp;</h1>
+              <h1 className={title()}>Immense peace and &nbsp</h1>
+              <h1 className={title({ color: "green" })}>relaxing,&nbsp</h1>
               <br />
               <h1 className={title()}>pleasure begins at our properties.</h1>
               <h4 className={subtitle({ class: "mt-4" })}>
@@ -63,9 +63,9 @@ export default function IndexPage() {
   
 
       {/* Last section */}
-      <div>
+      {/* <div>
         <LastSection />
-      </div>
+      </div> */}
 
       {/* Footer */}
       <div>
@@ -73,5 +73,5 @@ export default function IndexPage() {
       </div>
 
     </div>
-  );
+  )
 }
